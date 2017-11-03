@@ -84,6 +84,10 @@ class Camera1 extends CameraViewImpl {
         });
     }
 
+    public void setTextureTranslationY(float translationY){
+        mPreview.setTextureTranslationY(translationY);
+    }
+
     @Override
     boolean start() {
         chooseCamera();

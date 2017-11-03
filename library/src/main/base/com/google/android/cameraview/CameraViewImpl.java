@@ -38,6 +38,8 @@ abstract class CameraViewImpl {
     /**
      * @return {@code true} if the implementation was able to start the camera session.
      */
+    abstract void setTextureTranslationY(float translationY);
+
     abstract boolean start();
 
     abstract void stop();

@@ -18,8 +18,13 @@ package com.google.android.cameraview;
 
 import android.annotation.TargetApi;
 import android.content.Context;
+import android.content.res.Resources;
 import android.graphics.Matrix;
 import android.graphics.SurfaceTexture;
+import android.hardware.Camera;
+import android.util.DisplayMetrics;
+import android.util.Log;
+import android.view.Display;
 import android.view.Surface;
 import android.view.TextureView;
 import android.view.View;
@@ -27,12 +32,15 @@ import android.view.ViewGroup;
 
 @TargetApi(14)
 class TextureViewPreview extends PreviewImpl {
+    public static String LOG_TAG = "TextureViewPreview";
 
     private final TextureView mTextureView;
 
     private int mDisplayOrientation;
 
     TextureViewPreview(Context context, ViewGroup parent) {
+        Log.d(LOG_TAG, "call in constructor");
+
         final View view = View.inflate(context, R.layout.texture_view, parent);
         mTextureView = (TextureView) view.findViewById(R.id.texture_view);
         mTextureView.setSurfaceTextureListener(new TextureView.SurfaceTextureListener() {
@@ -132,6 +140,7 @@ class TextureViewPreview extends PreviewImpl {
                                     width, height, // top right
                                     0.f, 0.f, // bottom left
                                     0.f, height, // bottom right
+//                            }, 0,
                             }, 0,
                     4);
         } else if (mDisplayOrientation == 180) {
@@ -140,4 +149,8 @@ class TextureViewPreview extends PreviewImpl {
         mTextureView.setTransform(matrix);
     }
 
+    public void setTextureTranslationY(float translationY){
+        Log.d(LOG_TAG, "calling setTranslationY with arg: " + translationY);
+        mTextureView.setTranslationY(translationY);
+    }
 }

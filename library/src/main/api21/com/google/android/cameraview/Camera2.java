@@ -207,6 +207,10 @@ class Camera2 extends CameraViewImpl {
         });
     }
 
+    public void setTextureTranslationY(float translationY){
+        mPreview.setTextureTranslationY(translationY);
+    }
+
     @Override
     boolean start() {
         if (!chooseCameraIdByFacing()) {

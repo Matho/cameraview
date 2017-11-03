@@ -537,4 +537,7 @@ public class CameraView extends FrameLayout {
         }
     }
 
+    public void setTextureTranslationY(float translationY){
+        mImpl.setTextureTranslationY(translationY);
+    }
 }

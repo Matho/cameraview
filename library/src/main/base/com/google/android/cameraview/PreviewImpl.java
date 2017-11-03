@@ -40,6 +40,8 @@ abstract class PreviewImpl {
         mCallback = callback;
     }
 
+    abstract void setTextureTranslationY(float translationY);
+
     abstract Surface getSurface();
 
     abstract View getView();

@@ -83,4 +83,8 @@ class SurfaceViewPreview extends PreviewImpl {
         return getWidth() != 0 && getHeight() != 0;
     }
 
+    public void setTextureTranslationY(float translationY){
+
+    }
+
 }
